@@ -17,3 +17,6 @@ CREATE TABLE "URLS" (
     "studentId" TEXT NOT NULL,
     CONSTRAINT "URLS_studentId_fkey" FOREIGN KEY ("studentId") REFERENCES "Student" ("id") ON DELETE RESTRICT ON UPDATE CASCADE
 );
+
+-- CreateIndex
+CREATE UNIQUE INDEX "Student_emailId_key" ON "Student"("emailId");

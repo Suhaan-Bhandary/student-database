@@ -16,7 +16,7 @@ model Student {
   lastName    String
   linkedIn    String
   mobile      String
-  emailId     String
+  emailId     String @unique
   currentPost String
   otherUrls   URLS[]
 }
