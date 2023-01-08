@@ -1,0 +1,31 @@
+// Client provider for the express app
+generator client {
+  provider = "prisma-client-js"
+}
+
+// Database setting
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// Student model
+model Student {
+  id          String @id @default(cuid())
+  firstName   String
+  lastName    String
+  linkedIn    String
+  mobile      String
+  emailId     String
+  currentPost String
+  otherUrls   URLS[]
+}
+
+// Student other URLs model
+model URLS {
+  id        String  @id @default(cuid())
+  name      String
+  url       String
+  studentId String
+  Student   Student @relation(fields: [studentId], references: [id])
+}

@@ -1,0 +1,39 @@
+{
+  "name": "student-database",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start:dev": "ts-node-dev --respawn --transpile-only --exit-child ./src/server",
+    "clean": "rimraf build/*",
+    "copy-assets": "node tools/copyAssets.js",
+    "tsc": "tsc",
+    "build": "npm-run-all clean tsc copy-assets",
+    "start": "node build/server.js",
+    "production": "npm run build && npm run start"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/dotenv": "^8.2.0",
+    "@types/ejs": "^3.1.1",
+    "@types/express": "^4.17.15",
+    "@types/fs-extra": "^9.0.13",
+    "@types/node": "^18.11.18",
+    "@types/shelljs": "^0.8.11",
+    "fs-extra": "^11.1.0",
+    "npm-run-all": "^4.1.5",
+    "prisma": "^4.8.1",
+    "rimraf": "^3.0.2",
+    "shelljs": "^0.8.5",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^4.9.4"
+  },
+  "dependencies": {
+    "@prisma/client": "^4.8.1",
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2"
+  }
+}
