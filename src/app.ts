@@ -9,6 +9,9 @@ const app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+// Defining the public directory
+app.use(express.static(__dirname + '/public'));
+
 // Middleware
 app.use(express.json());
 
