@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Form</title>
+
+    <link rel="stylesheet" href="/studentForm/studentForm.css" />
+    <script src="/studentForm/studentForm.js" defer></script>
+  </head>
+  <body>
+    <form id="studentForm" method="POST">
+      <input type="text" name="firstName" placeholder="first-name" />
+      <input type="text" name="lastName" placeholder="last-name" />
+      <input type="text" name="linkedIn" placeholder="linkedIn" />
+      <input type="text" name="mobile" placeholder="mobile" />
+      <input type="text" name="emailId" placeholder="example@gmail.com" />
+      <input type="text" name="currentPost" placeholder="Current Post" />
+
+      <div class="input-field">
+        <input type="text" />
+        <span id="addOtherUrlIcon">+</span>
+      </div>
+      <div id="otherUrlsContainer"></div>
+
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+</html>
