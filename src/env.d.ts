@@ -7,6 +7,9 @@ declare global {
       CLIENT_ID: string;
       CLIENT_SECRET: string;
       SESSION_SECRET: string;
+
+      ADMIN_NAME: string;
+      ADMIN_PASSWORD: string;
     }
   }
 }

@@ -17,6 +17,7 @@ app.use(express.static(__dirname + '/public'));
 // Middleware
 app.use(cookieParser());
 app.use(express.json());
+app.use(express.urlencoded());
 
 // Routes
 /*
@@ -34,7 +35,7 @@ app.use(express.json());
 */
 
 app.use('/student', studentRoutes);
-app.use('/student', adminRoutes);
+app.use('/admin', adminRoutes);
 
 // Home Page
 app.get('/', async (req, res) => {
