@@ -65,14 +65,15 @@ const handleFormSubmit = (e) => {
   console.log(body);
 
   // Make a post request to the server to add the student
-  fetch('/student', {
-    method: 'POST',
+  fetch('/student/form/', {
+    method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(body),
   })
     .then((response) => response.json())
     .then((data) => {
       console.log('Success:', data);
+      window.location = '/student/success';
     })
     .catch((error) => {
       console.error('Error:', error);
@@ -82,3 +83,8 @@ const handleFormSubmit = (e) => {
 // Main Actions
 addOtherUrlIcon.addEventListener('click', handleOtherUrlsAdd);
 studentForm.addEventListener('submit', handleFormSubmit);
+
+// For every minus button add the close event
+document
+  .querySelectorAll('.minus-btn')
+  .forEach((element) => element.addEventListener('click', handleOtherUrlsRemove));

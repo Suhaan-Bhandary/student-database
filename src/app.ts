@@ -1,5 +1,6 @@
 import express from 'express';
 import path from 'path';
+import cookieParser from 'cookie-parser';
 
 import { adminRoutes, studentRoutes } from './routes';
 
@@ -13,6 +14,7 @@ app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public'));
 
 // Middleware
+app.use(cookieParser());
 app.use(express.json());
 
 // Routes
@@ -37,6 +39,11 @@ app.use('/student', adminRoutes);
 app.get('/', (req, res) => {
   // return res.json({ message: 'Home Page in Development!!' });
   return res.render('home');
+});
+
+// Not found page
+app.get('*', (req, res) => {
+  return res.render('notFound');
 });
 
 export default app;

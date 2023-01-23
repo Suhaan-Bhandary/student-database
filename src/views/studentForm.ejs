@@ -11,19 +11,59 @@
   </head>
   <body>
     <form id="studentForm" method="POST">
-      <input type="text" name="firstName" placeholder="first-name" />
-      <input type="text" name="lastName" placeholder="last-name" />
-      <input type="text" name="linkedIn" placeholder="linkedIn" />
-      <input type="text" name="mobile" placeholder="mobile" />
-      <input type="text" name="emailId" placeholder="example@gmail.com" />
-      <input type="text" name="currentPost" placeholder="Current Post" />
+      <input
+        type="text"
+        name="firstName"
+        placeholder="first-name"
+        value="<%= student.firstName %>"
+      />
+      <input
+        type="text"
+        name="lastName"
+        placeholder="last-name"
+        value="<%= student.lastName %>"
+      />
+      <input
+        type="text"
+        name="linkedIn"
+        placeholder="linkedIn"
+        value="<%= student.linkedIn %>"
+      />
+      <input
+        type="text"
+        name="mobile"
+        placeholder="mobile"
+        value="<%= student.mobile %>"
+      />
+      <input
+        type="text"
+        name="emailId"
+        placeholder="example@gmail.com"
+        value="<%= student.emailId %>"
+        readonly
+      />
+      <input
+        type="text"
+        name="currentPost"
+        placeholder="Current Post"
+        value="<%= student.currentPost %>"
+      />
 
       <div class="input-field">
         <input type="text" />
         <span id="addOtherUrlIcon">+</span>
       </div>
-      <div id="otherUrlsContainer"></div>
+      <div id="otherUrlsContainer">
+        <% for(var i=0; i < student.otherUrls.length; i++) { %>
+        <div>
+          <p class="other-url"><%= student.otherUrls[i].url %></p>
+          <span class="minus-btn">-</span>
+        </div>
+        <% } %>
+      </div>
 
+      <div class="buttons"></div>
+      <a href="/student/logout">Cancel</a>
       <button type="submit">Submit</button>
     </form>
   </body>
