@@ -1,9 +1,15 @@
 import { Request, Response } from 'express';
 import { UserData } from './controller';
+import prisma from '../services/prisma';
 
 export default {
   home: async (req: Request, res: Response) => {
-    return res.render('adminHome');
+    const students = await prisma.student.findMany({
+      include: { otherUrls: true },
+    });
+    console.log(students);
+
+    return res.render('adminHome', { students });
   },
   getLoginPage: async (req: Request, res: Response) => {
     return res.render('adminLogin');
@@ -25,5 +31,11 @@ export default {
 
     // Return admin page
     return res.redirect('/admin');
+  },
+  logOutAdmin: async (req: Request, res: Response) => {
+    res.clearCookie('session-token');
+
+    // Return the success message
+    return res.redirect('/');
   },
 };

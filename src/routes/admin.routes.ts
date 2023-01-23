@@ -9,5 +9,6 @@ router.get('/', isAdminAuth, adminController.home);
 
 router.get('/login', adminController.getLoginPage);
 router.post('/login', adminController.adminLogin);
+router.get('/logout', adminController.logOutAdmin);
 
 export default router;
