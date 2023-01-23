@@ -3,6 +3,7 @@ import path from 'path';
 import cookieParser from 'cookie-parser';
 
 import { adminRoutes, studentRoutes } from './routes';
+import prisma from './services/prisma';
 
 const app = express();
 
@@ -36,9 +37,12 @@ app.use('/student', studentRoutes);
 app.use('/student', adminRoutes);
 
 // Home Page
-app.get('/', (req, res) => {
-  // return res.json({ message: 'Home Page in Development!!' });
-  return res.render('home');
+app.get('/', async (req, res) => {
+  const students = await prisma.student.findMany({
+    select: { firstName: true, lastName: true, linkedIn: true },
+  });
+
+  return res.render('home', { students });
 });
 
 // Not found page

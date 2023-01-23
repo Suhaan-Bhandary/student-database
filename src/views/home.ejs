@@ -15,5 +15,17 @@
       <a href="/student/form">Student</a>
       <a href="/admin">Admin</a>
     </div>
+
+    <!-- Show list of students -->
+    <div class="student-list">
+      <h2>Members</h2>
+      <div>
+        <% for(var i=0; i < students.length; i++) { %>
+        <a href="<%= students[i].linkedIn %>">
+          <%= students[i].firstName %> <%= students[i].lastName %>
+        </a>
+        <% } %>
+      </div>
+    </div>
   </body>
 </html>
